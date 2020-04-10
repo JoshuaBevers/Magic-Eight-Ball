@@ -11,7 +11,8 @@ const EightBall = ({ QnA }) => {
         return (
           <div key={`question-${index}`}>
             {QnA[QnAId].question}
-            <div>{QnA[QnAId].answer}</div>
+            <br />
+            {QnA[QnAId].answer}
           </div>
         );
       })}
