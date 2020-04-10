@@ -26,7 +26,6 @@ const EightBall = ({ QnA }) => {
 
 const mapStateToProps = (state) => {
   const { QnA } = state;
-  console.log(QnA);
   return QnA;
 };
 
