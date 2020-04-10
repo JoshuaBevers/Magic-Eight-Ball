@@ -19,19 +19,20 @@ const inititalState = {
 const questionReducer = (state = inititalState, action) => {
   switch (action.type) {
     case ACTION_SET_QnA: {
-      const { question, id } = action.payload;
-      console.log(question.question);
+      const { question } = action.payload;
+      console.log("The question is: ", question);
+      const answer2 = question.answer;
+      console.log("the answer is: ", answer2);
       const question2 = question.question;
-      const StateQuestion = state.question[id].question;
-      console.log("Statequestion is: ", StateQuestion);
+      console.log("the question2 is: ", question2);
+      const id =
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15);
 
-      // const StateQuestion = state.QnA[id].question;
-      // console.log(StateQuestion);
-      // const StateAnswer = state.QnA[id].answer;
       return {
         QnA: {
           ...state.QnA,
-          [id]: { question2 },
+          [id]: { question2, answer2 },
         },
       };
     }

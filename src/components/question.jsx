@@ -8,29 +8,37 @@ class Question extends Component {
     answer: "",
   };
 
-  handleChange = (question, e) => {
-    this.setState({ quetion: question });
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
     const { question, answer } = this.state;
-    this.props.addQnA({ question: question, answer });
+    // answer = fetchfunction
+    console.log("Submitting: ", question);
+    this.props.addQnA({ question: question, answer: "temp answer" });
     this.setState({ question: "", answer: "" });
   };
 
   render() {
+    const { question } = this.state;
     return (
-      <form onClick={this.handleSubmit}>
+      <div>
         <input
           type="text"
           name="question"
           placeholder="Your Question"
           onChange={this.handleChange}
+          value={question}
         />
 
-        <button type="submit">Submit Question</button>
-      </form>
+        <button type="submit" onClick={this.handleSubmit}>
+          Submit Question
+        </button>
+      </div>
     );
   }
 }

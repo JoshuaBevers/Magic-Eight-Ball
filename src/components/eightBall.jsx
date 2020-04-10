@@ -18,7 +18,6 @@ const EightBall = ({ QnA, addQnA }) => {
     <div>
       <>Tom Nook Here!</>
       <div>the input of question and output of answer goes here.</div>
-
       <div>The list of all the questions and their answers goes here.</div>
       {QnAArray.map((QnAId, index) => {
         return (
