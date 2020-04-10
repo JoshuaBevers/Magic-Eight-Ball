@@ -17,10 +17,22 @@ class Question extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     const { question } = this.state;
-    // answer = fetchfunction
-    console.log("Submitting: ", question);
-    this.props.addQnA({ question, answer: "temp answer" });
+    const answer = await this.getAnswer(question);
+
+    this.props.addQnA({ question, answer: answer });
     this.setState({ question: "", answer: "" });
+  };
+
+  getAnswer = async (question) => {
+    let params = encodeURIComponent(question);
+    let uri = "https://8ball.delegator.com/magic/JSON/" + params;
+    const data = await fetch(uri)
+      .then((response) => response.json())
+      .then((json) => {
+        return json;
+      });
+    const response = data.magic.answer;
+    return response;
   };
 
   render() {
