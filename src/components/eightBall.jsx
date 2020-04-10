@@ -6,10 +6,13 @@ const EightBall = ({ QnA }) => {
 
   return (
     <div>
-      <div>The list of all the questions and their answers goes here.</div>
+      <div>A historical record of previous questions:</div>
       {QnAArray.map((QnAId, index) => {
         return (
           <div key={`question-${index}`}>
+            <br />
+            Question: {index + 1}
+            <br />
             {QnA[QnAId].question}
             <br />
             {QnA[QnAId].answer}
@@ -22,6 +25,7 @@ const EightBall = ({ QnA }) => {
 
 const mapStateToProps = (state) => {
   const { QnA } = state;
+  console.log(QnA);
   return QnA;
 };
 
