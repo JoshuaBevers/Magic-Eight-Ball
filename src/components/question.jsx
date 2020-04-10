@@ -16,10 +16,10 @@ class Question extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    const { question, answer } = this.state;
+    const { question } = this.state;
     // answer = fetchfunction
     console.log("Submitting: ", question);
-    this.props.addQnA({ question: question, answer: "temp answer" });
+    this.props.addQnA({ question, answer: "temp answer" });
     this.setState({ question: "", answer: "" });
   };
 

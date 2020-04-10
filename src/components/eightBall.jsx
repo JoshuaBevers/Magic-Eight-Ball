@@ -13,6 +13,7 @@ const EightBall = ({ QnA }) => {
             <br />
             Question: {index + 1}
             <br />
+            <br />
             {QnA[QnAId].question}
             <br />
             {QnA[QnAId].answer}
